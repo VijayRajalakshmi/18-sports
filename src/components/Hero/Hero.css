@@ -1,0 +1,69 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 50px;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+/* LEFT SIDE */
+.hero-left {
+  max-width: 500px;
+}
+
+.hero-left h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero-left p {
+  color: #bbb;
+  margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.shop-btn {
+  background: #ff4d00;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-cta {
+  background: #25D366;
+  padding: 12px 25px;
+  color: #fff;
+}
+
+/* RIGHT SIDE */
+.hero-right img {
+  width: 500px;
+  object-fit: contain;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

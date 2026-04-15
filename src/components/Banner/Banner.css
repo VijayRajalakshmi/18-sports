@@ -1,0 +1,112 @@
+/* BACKGROUND */
+.banner {
+  position: relative;
+  height: 300px;
+  margin: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #fff;
+}
+
+/* 🔥 PARTICLES */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  font-size: 25px;
+  opacity: 0.2;
+  animation: float 6s infinite ease-in-out;
+}
+
+/* DIFFERENT POSITIONS */
+.b1 { left: 10%; top: 30%; animation-delay: 0s; }
+.b2 { left: 50%; top: 70%; animation-delay: 2s; }
+.b3 { left: 80%; top: 20%; animation-delay: 4s; }
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* CONTENT */
+.banner-content {
+  text-align: center;
+  z-index: 2;
+  max-width: 500px;
+}
+
+/* TEXT ANIMATION */
+.banner-content h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  animation: fadeUp 1s ease;
+}
+
+.banner-content p {
+  color: #bbb;
+  margin-bottom: 20px;
+  animation: fadeUp 1.3s ease;
+}
+
+/* BUTTONS */
+.banner-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  animation: fadeUp 1.6s ease;
+}
+
+.primary-btn {
+  background: #ff4d00;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: #25D366;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+/* TEXT ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .banner {
+    margin: 20px;
+    height: 250px;
+  }
+
+  .banner-content h2 {
+    font-size: 20px;
+  }
+
+  .banner-actions {
+    flex-direction: column;
+  }
+}
