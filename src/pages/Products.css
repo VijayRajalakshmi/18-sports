@@ -1,0 +1,58 @@
+/* ===== PAGE ===== */
+.products-page {
+  padding: 50px;
+  background: #f8f9fb;
+}
+
+/* ===== TITLE ===== */
+.title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #111;
+}
+
+/* ===== GRID ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* ===== CARD FIX ===== */
+.products-grid .product-card {
+  width: 100%;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+
+  .products-page {
+    padding: 40px 30px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .products-page {
+    padding: 30px 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+}
