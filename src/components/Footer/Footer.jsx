@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -18,18 +19,28 @@ function Footer() {
         {/* QUICK LINKS */}
         <div className="footer-col">
           <h3>Quick Links</h3>
-          <a href="#">Home</a>
-          <a href="#">Products</a>
-          <a href="#">Categories</a>
-          <a href="#">Contact</a>
+
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </div>
 
-        {/* LOCATION + CONTACT (SEO BOOST) */}
+        {/* PRODUCTS / CATEGORIES */}
+        <div className="footer-col">
+          <h3>Categories</h3>
+
+          <Link to="/products/bats">Cricket Bats</Link>
+          <Link to="/products/balls">Balls</Link>
+          <Link to="/products/gloves">Gloves</Link>
+          <Link to="/products/shoes">Shoes</Link>
+        </div>
+
+        {/* CONTACT */}
         <div className="footer-col">
           <h3>Contact Us</h3>
           <p>📍 Peelamedu, Coimbatore</p>
-          <p>📞 +91 9488346669</p>
-          <p>📧 mailto24sports@gmail.com</p>
+          <p>📞 +91 xxxxxxx</p>
+          <p>📧 mailto18sports@gmail.com</p>
           <p>🕒 Open: 9 AM - 9 PM</p>
         </div>
 

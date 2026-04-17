@@ -3,49 +3,72 @@ import { FaSearch, FaUser, FaShoppingCart, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const navLinks = [
-  { name: "Cricket Bats", path: "/products/bats" },
-  { name: "Balls", path: "/products/balls" },
-  { name: "Protective Gear", path: "/products/guards" },
-  { name: "Gloves", path: "/products/gloves" },
-  { name: "Pads", path: "/products/pads" },
-  { name: "Helmets", path: "/products/helmet" },
-  { name: "Shoes", path: "/products/shoes" },
-  { name: "Accessories", path: "/products/accessories" },
-  { name: "Kit Bags", path: "/products/bags" },
+const categories = [
+  { name: "Cricket Bats", slug: "bats" },
+  { name: "Balls", slug: "balls" },
+  { name: "Protective Gear", slug: "guards" },
+  { name: "Gloves", slug: "gloves" },
+  { name: "Pads", slug: "pads" },
+  { name: "Helmets", slug: "helmet" },
+  { name: "Shoes", slug: "shoes" },
+  { name: "Accessories", slug: "accessories" },
+  { name: "Kit Bags", slug: "bags" },
 ];
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
 
   return (
     <header className="header">
+
       {/* TOP BAR */}
       <div className="topbar">
-        <span>📞 +91 9488346669</span>
-        <span>📍 Peelamedu, Coimbatore</span>
+        <p>📞 +91 xxxxxxxxxx</p>
+        <p>🚚 Free Delivery on Orders Above ₹999</p>
       </div>
 
-      {/* MAIN */}
+      {/* MAIN HEADER */}
       <div className="main-header">
-        <h1 className="logo">
-          <Link to="/" className="logo">
-            18 SPORTS
-          </Link>
-        </h1>
 
+        {/* LOGO */}
+        <Link to="/" className="logo">
+          18<span>SPORTS</span>
+        </Link>
+
+        {/* SEARCH */}
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search for products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button>
+            <FaSearch />
+          </button>
+        </div>
+
+        {/* ICONS */}
         <div className="icons">
-          <FaSearch />
           <FaUser />
-          <FaShoppingCart />
-          <FaBars className="menu-icon" onClick={() => setOpen(!open)} />
+
+          <div className="cart">
+            <FaShoppingCart />
+            <span className="cart-count">0</span>
+          </div>
+
+          <FaBars
+            className="menu-icon"
+            onClick={() => setOpen(!open)}
+          />
         </div>
       </div>
 
       {/* DESKTOP NAV */}
       <nav className="nav">
-        {navLinks.map((item, index) => (
-          <Link key={index} to={item.path}>
+        {categories.map((item, index) => (
+          <Link key={index} to={`/products/${item.slug}`}>
             {item.name}
           </Link>
         ))}
@@ -53,12 +76,17 @@ function Header() {
 
       {/* MOBILE MENU */}
       <div className={`mobile-menu ${open ? "active" : ""}`}>
-        {navLinks.map((item, index) => (
-          <a key={index} href={item.path}>
+        {categories.map((item, index) => (
+          <Link
+            key={index}
+            to={`/products/${item.slug}`}
+            onClick={() => setOpen(false)}
+          >
             {item.name}
-          </a>
+          </Link>
         ))}
       </div>
+
     </header>
   );
 }

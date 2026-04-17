@@ -1,0 +1,127 @@
+/* ===== MAIN ===== */
+.about {
+  padding: 60px 40px;
+  background: #fff;
+}
+
+/* ===== CONTAINER ===== */
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ===== TITLE ===== */
+.about h1 {
+  font-size: 34px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+/* ===== HIGHLIGHT ===== */
+.highlight {
+  color: #ff4d00;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* ===== TEXT ===== */
+.about p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* ===== SECTION ===== */
+.about-section {
+  margin-top: 40px;
+}
+
+.about-section h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* ===== GRID ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* ===== CARD ===== */
+.about-card {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* ===== TEXT ===== */
+.about-card h3 {
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.about-card p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+
+  .about {
+    padding: 50px 30px;
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about h1 {
+    font-size: 30px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .about {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    text-align: center;
+  }
+
+  .about h1 {
+    font-size: 24px;
+  }
+
+  .about-section h2 {
+    font-size: 18px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .about-card {
+    padding: 15px;
+  }
+
+  .about-card p {
+    font-size: 12px;
+  }
+}
