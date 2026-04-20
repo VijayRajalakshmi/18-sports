@@ -1,89 +1,109 @@
 import "./About.css";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 function About() {
   return (
     <section className="about">
+
+      {/* HERO */}
+      <motion.div
+        className="about-hero"
+        initial="hidden"
+        animate="show"
+      >
+        <motion.h1 variants={fadeUp} custom={1}>
+          About 18 Sports
+        </motion.h1>
+
+        <motion.p className="highlight" variants={fadeUp} custom={2}>
+          Your trusted cricket store in Peelamedu, Coimbatore.
+        </motion.p>
+      </motion.div>
+
       <div className="about-container">
 
-        <h1>About 18 Sports</h1>
-
-        <p className="highlight">
-          Your trusted cricket store in Peelamedu, Coimbatore.
-        </p>
-
-        <p>
-          18 Sports is a dedicated cricket equipment store providing high-quality gear 
-          for players of all levels. Whether you are a beginner or a professional, 
-          we ensure you get the right equipment to improve your performance.
-        </p>
+        {/* INTRO */}
+        <motion.p
+          className="intro"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={1}
+        >
+          18 Sports provides high-quality cricket gear for players of all levels.
+          Whether beginner or professional, we ensure performance and durability.
+        </motion.p>
 
         {/* STORY */}
-        <div className="about-section">
-          <h2>🏏 Our Story</h2>
-          <p>
-            Founded with a passion for cricket, 18 Sports was created to make premium 
-            cricket gear accessible to everyone. We understand the needs of players 
-            and carefully select products that deliver performance and durability.
-          </p>
-        </div>
+        <motion.div
+          className="about-section"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <motion.h2 variants={fadeUp} custom={1}>🏏 Our Story</motion.h2>
+          <motion.p variants={fadeUp} custom={2}>
+            Built from passion for cricket, we bring premium gear that enhances
+            player performance with durability and trust.
+          </motion.p>
+        </motion.div>
 
-        {/* GRID FEATURES */}
-        <div className="about-grid">
+        {/* GRID */}
+        <motion.div
+          className="about-grid"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {[
+            ["🏏 Our Mission", "High-quality gear at affordable prices."],
+            ["🚚 Fast Delivery", "Quick delivery across Coimbatore."],
+            ["💬 Support", "Instant WhatsApp support."],
+            ["⭐ Quality", "Only trusted brands."],
+            ["🔒 Genuine", "100% original products."],
+            ["📍 Local Store", "Peelamedu, Coimbatore."],
+          ].map((item, i) => (
+            <motion.div
+              className="about-card"
+              key={i}
+              variants={fadeUp}
+              custom={i + 1}
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3>{item[0]}</h3>
+              <p>{item[1]}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-          <div className="about-card">
-            <h3>🏏 Our Mission</h3>
-            <p>
-              To provide high-quality cricket products at affordable prices 
-              for every player.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>🚚 Fast Delivery</h3>
-            <p>
-              Quick and reliable delivery across Coimbatore and nearby locations.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>💬 Customer Support</h3>
-            <p>
-              Instant support through WhatsApp and phone for all queries.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>⭐ Quality Products</h3>
-            <p>
-              We offer only trusted brands with high durability and performance.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>🔒 100% Genuine</h3>
-            <p>
-              All products are original and verified to ensure customer trust.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>📍 Local Presence</h3>
-            <p>
-              Located in Peelamedu, Coimbatore — serving local and online customers.
-            </p>
-          </div>
-
-        </div>
-
-        {/* EXTRA SEO SECTION */}
-        <div className="about-section">
-          <h2>Why Choose 18 Sports?</h2>
-          <p>
-            If you're searching for a reliable cricket shop in Peelamedu or 
-            Coimbatore, 18 Sports is your go-to destination. We combine quality, 
-            affordability, and customer satisfaction to deliver the best experience.
-          </p>
-        </div>
+        {/* WHY */}
+        <motion.div
+          className="about-section"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <motion.h2 variants={fadeUp} custom={1}>
+            Why Choose 18 Sports?
+          </motion.h2>
+          <motion.p variants={fadeUp} custom={2}>
+            Trusted by local players in Coimbatore for quality, pricing, and service.
+          </motion.p>
+        </motion.div>
 
       </div>
     </section>

@@ -2,6 +2,7 @@ import "./ProductGrid.css";
 import products from "../../data/products";
 import ProductCard from "../ProductCard/ProductCard";
 import { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function ProductGrid() {
   const scrollRef = useRef();
@@ -9,44 +10,67 @@ function ProductGrid() {
   const bats = products.filter((item) => item.category === "bats");
 
   const scroll = (direction) => {
-    if (direction === "left") {
-      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
-    } else {
-      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
   };
 
-  // 🔥 AUTO SCROLL (premium feel)
+  // 🔥 SMART AUTO SCROLL (pauses on hover)
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollBy({ left: 250, behavior: "smooth" });
-      }
-    }, 3000);
+    const slider = scrollRef.current;
 
-    return () => clearInterval(interval);
+    let interval;
+
+    const startScroll = () => {
+      interval = setInterval(() => {
+        slider.scrollBy({ left: 260, behavior: "smooth" });
+      }, 3500);
+    };
+
+    const stopScroll = () => clearInterval(interval);
+
+    startScroll();
+
+    slider.addEventListener("mouseenter", stopScroll);
+    slider.addEventListener("mouseleave", startScroll);
+
+    return () => {
+      clearInterval(interval);
+      slider.removeEventListener("mouseenter", stopScroll);
+      slider.removeEventListener("mouseleave", startScroll);
+    };
   }, []);
 
   return (
     <section className="products">
+
+      {/* HEADER */}
       <div className="product-header">
-        <h2>Top Selling Bats</h2>
+        <div>
+          <h2>Top Picks for Power Hitters</h2>
+          <p>Engineered bats trusted by serious players</p>
+        </div>
 
         <div className="actions">
-          <span className="view-all">View All</span>
+          <Link to="/products/bats" className="view-all">
+            Explore All →
+          </Link>
 
           <div className="arrows">
-            <button onClick={() => scroll("left")}>←</button>
-            <button onClick={() => scroll("right")}>→</button>
+            <button onClick={() => scroll("left")}>‹</button>
+            <button onClick={() => scroll("right")}>›</button>
           </div>
         </div>
       </div>
 
+      {/* SLIDER */}
       <div className="product-slider" ref={scrollRef}>
         {bats.map((item) => (
           <ProductCard key={item.id} product={item} />
         ))}
       </div>
+
     </section>
   );
 }

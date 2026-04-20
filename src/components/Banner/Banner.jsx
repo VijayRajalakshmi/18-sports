@@ -1,34 +1,38 @@
 import "./Banner.css";
-import { GiCricket } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 function Banner() {
   return (
     <section className="banner">
 
-      {/* 🔥 FLOATING BALLS */}
-      <div className="particles">
-        <GiCricket className="ball b1" />
-        <GiCricket className="ball b2" />
-        <GiCricket className="ball b3" />
-      </div>
+      {/* BACKGROUND GLOW */}
+      <div className="glow"></div>
 
       {/* CONTENT */}
       <div className="banner-content">
-        <h2>ONLY THE BEST FOR YOU</h2>
+        <span className="tag">18 SPORTS EXCLUSIVE</span>
+
+        <h2>
+          Built for Performance <br />
+          Designed for <span>Champions</span>
+        </h2>
 
         <p>
-          Premium cricket gear crafted for champions.
+          Discover premium cricket gear engineered for precision, power and durability.
         </p>
 
         <div className="banner-actions">
-          <button className="primary-btn">Shop Now</button>
+          <Link to="/products" className="primary-btn">
+            Shop Collection →
+          </Link>
 
           <a
             href="https://wa.me/919999999999"
             target="_blank"
+            rel="noreferrer"
             className="secondary-btn"
           >
-            Enquire Now
+            Talk to Expert
           </a>
         </div>
       </div>

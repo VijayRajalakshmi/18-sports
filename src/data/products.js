@@ -1,9 +1,8 @@
 // IMPORT IMAGES
 import bat1 from "../assets/images/bat1.jpeg";
-/* import bat2 from "../assets/images/ba.jpeg";
- */import glove1 from "../assets/images/glove1.jpeg";
+import glove1 from "../assets/images/glove1.webp";
 import ball1 from "../assets/images/ball1.jpeg";
-import pad1 from "../assets/images/pad1.jpeg";
+import pad1 from "../assets/images/pad1.webp";
 import helmet1 from "../assets/images/helmet1.jpeg";
 import box1 from "../assets/images/box1.jpeg";
 import body1 from "../assets/images/body1.jpeg";

@@ -1,34 +1,51 @@
 import "./Hero.css";
-import heroImg from "../../assets/Hero.jpeg";
 
 function Hero() {
   return (
     <section className="hero">
-      {/* LEFT CONTENT */}
-      <div className="hero-left">
-        <h1>
-          ALL CRICKET <br /> ACCESSORIES <br /> IN ONE PLACE
+
+      <div className="hero-content">
+
+        {/* Trust Badge */}
+        <div className="hero-badge fade-up">
+          ⭐ Trusted by 1000+ Players
+        </div>
+
+        {/* Heading */}
+        <h1 className="fade-up delay-1">
+          Elevate Your <br />
+          <span className="gradient-text">Game Performance</span>
         </h1>
 
-        <p>Premium Cricket Gear & Accessories</p>
+        {/* Description */}
+        <p className="fade-up delay-2">
+          Premium cricket gear built for power, precision,
+          and durability. Designed for serious players.
+        </p>
 
-        <div className="buttons">
-          <button className="shop-btn">Shop Now</button>
+        {/* CTA */}
+        <div className="hero-buttons fade-up delay-3">
+          <button className="btn-primary">
+            Shop Collection →
+          </button>
 
           <a
             href="https://wa.me/919999999999"
             target="_blank"
-            className="whatsapp-cta"
+            rel="noreferrer"
+            className="btn-secondary"
           >
-            Enquire on WhatsApp
+            Talk to Expert
           </a>
         </div>
+
+        {/* Mini proof */}
+        <div className="hero-proof fade-up delay-4">
+          ✔ Fast Delivery &nbsp;&nbsp; ✔ Quality Assured &nbsp;&nbsp; ✔ Best Prices
+        </div>
+
       </div>
 
-      {/* RIGHT IMAGE */}
-      <div className="hero-right">
-        <img src={heroImg} alt="cricket" />
-      </div>
     </section>
   );
 }

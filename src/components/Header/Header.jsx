@@ -1,94 +1,100 @@
-import "./Header.css";
-import { FaSearch, FaUser, FaShoppingCart, FaBars } from "react-icons/fa";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+  import "./Header.css";
+  import { FaSearch, FaUser, FaBars, FaTimes } from "react-icons/fa";
+  import { useState } from "react";
+  import { Link, useNavigate } from "react-router-dom";
+  import logo from "/logo.png";
 
-const categories = [
-  { name: "Cricket Bats", slug: "bats" },
-  { name: "Balls", slug: "balls" },
-  { name: "Protective Gear", slug: "guards" },
-  { name: "Gloves", slug: "gloves" },
-  { name: "Pads", slug: "pads" },
-  { name: "Helmets", slug: "helmet" },
-  { name: "Shoes", slug: "shoes" },
-  { name: "Accessories", slug: "accessories" },
-  { name: "Kit Bags", slug: "bags" },
-];
+  const categories = [
+    { name: "Bats", slug: "bats" },
+    { name: "Balls", slug: "balls" },
+    { name: "Gloves", slug: "gloves" },
+    { name: "Pads", slug: "pads" },
+    { name: "Helmets", slug: "helmet" },
+    { name: "Shoes", slug: "shoes" },
+    { name: "Accessories", slug: "accessories" },
+    { name: "Kit Bags", slug: "bags" },
+  ];
 
-function Header() {
-  const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState("");
+  function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
 
-  return (
-    <header className="header">
+    const handleSearch = () => {
+      if (search.trim() !== "") {
+        navigate(`/products?search=${search}`);
+        setSearch("");
+      }
+    };
 
-      {/* TOP BAR */}
-      <div className="topbar">
-        <p>📞 +91 xxxxxxxxxx</p>
-        <p>🚚 Free Delivery on Orders Above ₹999</p>
-      </div>
+    return (
+      <header className="header">
 
-      {/* MAIN HEADER */}
-      <div className="main-header">
+        <div className="header-container">
 
-        {/* LOGO */}
-        <Link to="/" className="logo">
-          18<span>SPORTS</span>
-        </Link>
+          {/* LEFT: LOGO */}
+          <Link to="/" className="logo">
+            <img src={logo} alt="18 Sports Logo" />
+          </Link>
 
-        {/* SEARCH */}
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search for products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button>
-            <FaSearch />
-          </button>
-        </div>
+          {/* CENTER: NAV */}
+          <nav className="nav">
+            {categories.map((item, index) => (
+              <Link key={index} to={`/products/${item.slug}`}>
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* ICONS */}
-        <div className="icons">
-          <FaUser />
+          {/* RIGHT: ACTIONS */}
+          <div className="header-actions">
 
-          <div className="cart">
-            <FaShoppingCart />
-            <span className="cart-count">0</span>
+            {/* SEARCH */}
+            <div className="search-box">
+              <input
+                type="text"
+                placeholder="Search cricket gear..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+              />
+              <button onClick={handleSearch}>
+                <FaSearch />
+              </button>
+            </div>
+
+            {/* USER */}
+            <div className="icon user-icon">
+              <FaUser />
+            </div>
+
+            {/* MOBILE MENU TOGGLE */}
+            <div
+              className="icon menu-toggle"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </div>
+
           </div>
 
-          <FaBars
-            className="menu-icon"
-            onClick={() => setOpen(!open)}
-          />
         </div>
-      </div>
 
-      {/* DESKTOP NAV */}
-      <nav className="nav">
-        {categories.map((item, index) => (
-          <Link key={index} to={`/products/${item.slug}`}>
-            {item.name}
-          </Link>
-        ))}
-      </nav>
+        {/* MOBILE MENU */}
+        <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
+          {categories.map((item, index) => (
+            <Link
+              key={index}
+              to={`/products/${item.slug}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
 
-      {/* MOBILE MENU */}
-      <div className={`mobile-menu ${open ? "active" : ""}`}>
-        {categories.map((item, index) => (
-          <Link
-            key={index}
-            to={`/products/${item.slug}`}
-            onClick={() => setOpen(false)}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
+      </header>
+    );
+  }
 
-    </header>
-  );
-}
-
-export default Header;
+  export default Header;

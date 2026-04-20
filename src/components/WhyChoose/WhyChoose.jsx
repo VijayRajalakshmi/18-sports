@@ -5,66 +5,63 @@ function WhyChoose() {
   return (
     <section className="why">
 
-      {/* LEFT CONTENT */}
+      {/* LEFT SIDE */}
       <div className="why-left">
+        <span className="tag">WHY CHOOSE US</span>
+
         <h2>
-          Why <span>Players Trust</span> 18 Sports
+          Trusted by <span>Serious Players</span>
         </h2>
 
         <p>
-          From beginners to professionals — we provide everything you need 
-          to perform at your best with quality gear and reliable service.
+          We don’t just sell gear — we deliver performance, durability,
+          and reliability trusted by players across all levels.
         </p>
 
+        {/* STATS */}
         <div className="stats">
-          <div>
+          <div className="stat-box">
             <h3>500+</h3>
             <p>Products</p>
           </div>
-          <div>
+
+          <div className="stat-box">
             <h3>1000+</h3>
             <p>Happy Players</p>
           </div>
-          <div>
+
+          <div className="stat-box">
             <h3>4.8★</h3>
             <p>Ratings</p>
           </div>
         </div>
       </div>
 
-      {/* RIGHT CARDS */}
+      {/* RIGHT SIDE */}
       <div className="why-right">
 
         <div className="feature-card">
-          <FaTruck />
-          <div>
-            <h4>Fast Delivery</h4>
-            <p>Quick dispatch & safe shipping</p>
-          </div>
+          <FaTruck className="icon" />
+          <h4>Fast Delivery</h4>
+          <p>Quick dispatch with secure packaging</p>
         </div>
 
         <div className="feature-card">
-          <FaRupeeSign />
-          <div>
-            <h4>Best Pricing</h4>
-            <p>Competitive & fair pricing</p>
-          </div>
+          <FaRupeeSign className="icon" />
+          <h4>Best Pricing</h4>
+          <p>Affordable rates without compromise</p>
         </div>
 
         <div className="feature-card">
-          <FaShieldAlt />
-          <div>
-            <h4>Premium Quality</h4>
-            <p>Top brands & durability</p>
-          </div>
+          <FaShieldAlt className="icon" />
+          <h4>Premium Quality</h4>
+          <p>Only trusted brands & materials</p>
         </div>
 
         <div className="feature-card">
-          <FaHeadset />
-          <div>
-            <h4>24/7 Support</h4>
-            <p>Always here to help you</p>
-          </div>
+          <FaHeadset className="icon" />
+          <h4>Expert Support</h4>
+          <p>Real guidance, not just responses</p>
         </div>
 
       </div>

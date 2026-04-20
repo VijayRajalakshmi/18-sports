@@ -1,35 +1,45 @@
 import "./ShopByBrand.css";
+import { Link } from "react-router-dom";
 
-// IMPORT YOUR IMAGES (use any 4 for now)
-import bat from "../../assets/images/bat1.jpeg";
-import glove from "../../assets/images/glove1.jpeg";
-import pad from "../../assets/images/pad1.jpeg";
-import shoe from "../../assets/images/shoe1.jpeg";
+// 👉 Use clean brand-related images (not random products)
+import mrf from "/brands/MRF.png";
+import sg from "/brands/SG.png";
+import ss from "/brands/SS.png";
+import nike from "/brands/Nike.png";
 
 const brands = [
-  { name: "MRF", image: bat },
-  { name: "SG", image: glove },
-  { name: "SS", image: pad },
-  { name: "NIKE", image: shoe },
+  { name: "MRF", slug: "mrf", image: mrf },
+  { name: "SG", slug: "sg", image: sg },
+  { name: "SS", slug: "ss", image: ss },
+  { name: "Nike", slug: "nike", image: nike },
 ];
 
 function ShopByBrand() {
   return (
     <section className="brands">
-      <h2>Shop by Brand</h2>
+
+      <div className="brand-header">
+        <h2>Shop by Brand</h2>
+        <p>Explore gear from top cricket brands</p>
+      </div>
 
       <div className="brand-grid">
-        {brands.map((item, index) => (
-          <div key={index} className="brand-card">
-            <img src={item.image} alt={item.name} />
+        {brands.map((brand, index) => (
+          <Link
+            to={`/brand/${brand.slug}`}
+            key={index}
+            className="brand-card"
+          >
+            <img src={brand.image} alt={brand.name} />
 
-            <div className="brand-overlay">
-              <h3>{item.name}</h3>
-              <button>View All</button>
+            <div className="overlay">
+              <h3>{brand.name}</h3>
+              <span>Explore →</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
+
     </section>
   );
 }

@@ -1,58 +1,137 @@
 /* ===== PAGE ===== */
 .products-page {
-  padding: 50px;
-  background: #f8f9fb;
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 20px 0 40px;
 }
 
-/* ===== TITLE ===== */
-.title {
-  font-size: 28px;
-  margin-bottom: 25px;
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #64748b;
+}
+
+.breadcrumb .active {
+  color: #8B0000;
+  font-weight: 600;
+}
+
+/* ===== HEADER (TITLE + SORT) ===== */
+.products-top {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* TITLE AREA */
+.title-area h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #111;
 }
 
-/* ===== GRID ===== */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+.title-area p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 4px;
 }
 
-/* ===== CARD FIX ===== */
-.products-grid .product-card {
+/* ===== SORT ===== */
+.sort {
   width: 100%;
 }
 
-/* ===== TABLET ===== */
-@media (max-width: 1024px) {
+.sort select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
 
-  .products-page {
-    padding: 40px 30px;
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.empty h2 {
+  font-size: 1.4rem;
+}
+
+.empty p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+
+  .container {
+    padding: 0 40px;
   }
 
-  .products-grid {
+  .products-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title-area h1 {
+    font-size: 2.2rem;
+  }
+
+  .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .title {
-    font-size: 24px;
+  .sort {
+    width: auto;
+  }
+
+  .sort select {
+    width: 200px;
   }
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
 
-  .products-page {
-    padding: 30px 20px;
+  .container {
+    padding: 0 20px;
   }
 
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .title-area h1 {
+    font-size: 2.5rem;
   }
 
-  .title {
-    font-size: 20px;
-    text-align: center;
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

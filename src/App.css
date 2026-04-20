@@ -1,0 +1,75 @@
+/* ===== FLOATING CONTAINER ===== */
+.floating-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* ===== MAIN BUTTON ===== */
+.main-float {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #8B0000;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== ICON STACK ===== */
+.floating-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 10px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.floating-icons.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===== BUTTON STYLE ===== */
+.float-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* BRAND COLORS */
+.whatsapp {
+  background: #25D366;
+}
+
+.call {
+  background: #3b82f6;
+}
+
+.insta {
+  background: #E1306C;
+}
+
+/* ===== HOVER ===== */
+.float-btn:hover {
+  transform: scale(1.1);
+}
+
+.main-float:hover {
+  transform: rotate(45deg);
+}
